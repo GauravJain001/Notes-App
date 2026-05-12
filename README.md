@@ -1,3 +1,6 @@
+
+
+
 # 📝 Notes App 
 
 A modern and responsive Notes App built using React Native and Expo.
@@ -15,12 +18,8 @@ The app contains two main views:
 * View 1 → Notes listing screen
 * View 2 → Notes editor screen
 
+https://github.com/user-attachments/assets/08d4f60e-e277-44b0-b134-6c8590863c0a
 ---
-<div align="center">
-  <video src="https://github.com/GauravJain001/Notes-App/raw/main/assets/video.mp4" width="100%" controls>
-    Your browser does not support the video tag.
-  </video>
-</div>
 
 # ✨ Features
 
@@ -184,7 +183,7 @@ src/
 ## 1. Clone Repository
 
 ```bash
-git clone <your-repository-link>
+git clone [<your-repository-link>](https://github.com/GauravJain001/Notes-App/)
 ```
 
 ---
@@ -203,16 +202,6 @@ npm install
 npx expo start
 ```
 
----
-
-# 🎥 Demo Video
-
-Add your demo video link here:
-
-![](./assets/video.mp4)
-```text
-<demo-video-link>
-```
 
 ---
 
