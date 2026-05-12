@@ -16,6 +16,11 @@ The app contains two main views:
 * View 2 → Notes editor screen
 
 ---
+<div align="center">
+  <video src="https://github.com/GauravJain001/Notes-App/raw/main/assets/video.mp4" width="100%" controls>
+    Your browser does not support the video tag.
+  </video>
+</div>
 
 # ✨ Features
 
