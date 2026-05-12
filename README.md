@@ -222,14 +222,22 @@ Add your repository link here:
 ---
 
 # 📸 Screenshots
-![](./assets/screenshots/sc1.jpg)
-![](./assets/screenshots/sc2.jpg)
-![](./assets/screenshots/sc3.jpg)
-![](./assets/screenshots/sc4.jpg)
-![](./assets/screenshots/sc5.jpg)
-![](./assets/screenshots/sc6.jpg)
-![](./assets/screenshots/sc7.jpg)
-![](./assets/screenshots/sc8.jpg)
+<p float="left">
+  <img src="./assets/screenshots/sc1.jpg" width="49%" />
+  <img src="./assets/screenshots/sc2.jpg" width="49%" />
+</p>
+<p float="left">
+  <img src="./assets/screenshots/sc3.jpg" width="49%" />
+  <img src="./assets/screenshots/sc4.jpg" width="49%" />
+</p>
+<p float="left">
+  <img src="./assets/screenshots/sc5.jpg" width="49%" />
+  <img src="./assets/screenshots/sc6.jpg" width="49%" />
+</p>
+<p float="left">
+  <img src="./assets/screenshots/sc7.jpg" width="49%" />
+  <img src="./assets/screenshots/sc8.jpg" width="49%" />
+</p>
 
 
 
