@@ -1,98 +1,148 @@
-import * as Device from 'expo-device';
-import { Platform, StyleSheet } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import Card from "@/components/Card";
+import Header from "@/components/Header";
+import { NOTES } from "@/constants/notes";
+import { COLORS } from "@/constants/theme";
+import { useEffect, useState } from "react";
+import { Text, View, StyleSheet, useColorScheme, FlatList } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+import {StatusBar} from "expo-status-bar";
+import View1 from "@/screens/View1";
+import View2 from "@/screens/View2";
 
-import { AnimatedIcon } from '@/components/animated-icon';
-import { HintRow } from '@/components/hint-row';
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
-import { WebBadge } from '@/components/web-badge';
-import { BottomTabInset, MaxContentWidth, Spacing } from '@/constants/theme';
 
-function getDevMenuHint() {
-  if (Platform.OS === 'web') {
-    return <ThemedText type="small">use browser devtools</ThemedText>;
+
+
+export default function Index() {
+  const [notes,setNotes] = useState([]) // state for all the notes
+  const systemTheme = useColorScheme() // load the system theme
+  const [theme,setTheme] = useState(systemTheme) // by default load the app in system theme
+  const curTheme = COLORS[theme] // loading dynamic theme
+  
+
+  const [curNoteId,setCurNoteId] = useState(null)
+  const [newNote,setNewNote] = useState(false)
+  const [searchText, setSearchText] = useState("")
+  const filteredNotes = !searchText.trim() ? notes
+    : notes.filter(note => {
+        const query = searchText.toLowerCase()
+        return (
+          note.title
+            .toLowerCase()
+            .includes(query)
+          ||
+          note.content
+            .toLowerCase()
+            .includes(query)
+        )
+      })
+  // this function toggles the theme from dark to light
+  const themeToggle = ()=>{
+    if(theme == "light"){
+      setTheme("dark")
+    }
+    else{
+      setTheme("light")
+    }
   }
-  if (Device.isDevice) {
-    return (
-      <ThemedText type="small">
-        shake device or press <ThemedText type="code">m</ThemedText> in terminal
-      </ThemedText>
-    );
+
+
+  //loading existing notes from sample notes.ts
+  useEffect(()=>{
+    if(NOTES.length == 0){
+      return
+    }
+    setNotes([...NOTES])
+  },[])
+  // adding note
+  const addNote = (id,title,content,date)=>{
+    let alreadyExists = notes.find((item)=>item.id==id)
+    if(alreadyExists){
+      return
+    }
+    const obj = {
+      id,
+      title,
+      content,
+      date
+    }
+    setNotes(prev => [obj, ...prev])
   }
-  const shortcut = Platform.OS === 'android' ? 'cmd+m (or ctrl+m)' : 'cmd+d';
+  //delete note
+  const deleteNote = (id)=>{
+    setCurNoteId(null)
+    setNotes(prev =>
+      prev.filter(item => item.id != id)
+    )
+
+  }
+  // update note
+  const updateNote = ({id,title,content})=>{
+    console.log(notes)
+    const obj = {
+      id,
+      title,
+      content,
+      date:Date.now()
+    }
+    const filteredNotes = notes.filter( note => note.id != id )
+    setNotes([obj,...filteredNotes])
+  }
+  //search notes
+  const searchNote =()=>{}
+
+  
+  
+
+
   return (
-    <ThemedText type="small">
-      press <ThemedText type="code">{shortcut}</ThemedText>
-    </ThemedText>
-  );
-}
+    <SafeAreaView style={[styles.container,{"backgroundColor":curTheme.background}]}>
+      <StatusBar style={theme==="dark"?"light":"dark"}/>
+      {curNoteId == null?
+        <View1
+          theme={theme}
+          themeToggle={themeToggle}
+          setTheme={setTheme}
+          notes={notes}
+          curNoteId={curNoteId}
+          setCurNoteId = {setCurNoteId}
+          addNote = {addNote}
+          setNotes = {setNotes}
+          newNote = {newNote}
+          setNewNote = {setNewNote}
+          searchText={searchText}
+          setSearchText={setSearchText}
+          filteredNotes={filteredNotes}
+        />
+        :
+        <View2
+        notes={notes}
+        theme={theme}
+        themeToggle={themeToggle}
+        setTheme={setTheme}
+        curNoteId={curNoteId}
+        setCurNoteId={setCurNoteId}
+        updateNote={updateNote}
+        deleteNote={deleteNote}
+        newNote = {newNote}
+        setNewNote = {setNewNote}
+        addNote={addNote}
+       
+        />
+    }
 
-export default function HomeScreen() {
-  return (
-    <ThemedView style={styles.container}>
-      <SafeAreaView style={styles.safeArea}>
-        <ThemedView style={styles.heroSection}>
-          <AnimatedIcon />
-          <ThemedText type="title" style={styles.title}>
-            Welcome to&nbsp;Expo
-          </ThemedText>
-        </ThemedView>
 
-        <ThemedText type="code" style={styles.code}>
-          get started
-        </ThemedText>
+     
+     
 
-        <ThemedView type="backgroundElement" style={styles.stepContainer}>
-          <HintRow
-            title="Try editing"
-            hint={<ThemedText type="code">src/app/index.tsx</ThemedText>}
-          />
-          <HintRow title="Dev tools" hint={getDevMenuHint()} />
-          <HintRow
-            title="Fresh start"
-            hint={<ThemedText type="code">npm run reset-project</ThemedText>}
-          />
-        </ThemedView>
 
-        {Platform.OS === 'web' && <WebBadge />}
-      </SafeAreaView>
-    </ThemedView>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    flexDirection: 'row',
-  },
-  safeArea: {
-    flex: 1,
-    paddingHorizontal: Spacing.four,
-    alignItems: 'center',
-    gap: Spacing.three,
-    paddingBottom: BottomTabInset + Spacing.three,
-    maxWidth: MaxContentWidth,
-  },
-  heroSection: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    flex: 1,
-    paddingHorizontal: Spacing.four,
-    gap: Spacing.four,
-  },
-  title: {
-    textAlign: 'center',
-  },
-  code: {
-    textTransform: 'uppercase',
-  },
-  stepContainer: {
-    gap: Spacing.three,
-    alignSelf: 'stretch',
-    paddingHorizontal: Spacing.three,
-    paddingVertical: Spacing.four,
-    borderRadius: Spacing.four,
+    alignItems: "center",
+  
   },
 });

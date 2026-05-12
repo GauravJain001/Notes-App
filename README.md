@@ -1,56 +1,254 @@
-# Welcome to your Expo app 👋
+# 📝 Notes App 
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A modern and responsive Notes App built using React Native and Expo.
 
-## Get started
+This project focuses on:
 
-1. Install dependencies
+* UI implementation
+* state management without navigation libraries
+* responsive layouts
+* dynamic theming
+* clean component architecture
 
-   ```bash
-   npm install
-   ```
+The app contains two main views:
 
-2. Start the app
+* View 1 → Notes listing screen
+* View 2 → Notes editor screen
 
-   ```bash
-   npx expo start
-   ```
+---
 
-In the output, you'll find options to open the app in a
+# ✨ Features
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## 📋 View 1 – Notes Listing Screen
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+* Display all notes using `FlatList`
+* Beautiful note cards with:
 
-## Get a fresh project
+  * title
+  * content preview
+  * date
+* Search notes by title/content
+* Floating Action Button (FAB) to create notes
+* Dynamic dark/light theme toggle
+* Responsive UI for phones and tablets
 
-When you're ready, run:
+---
+
+## ✍️ View 2 – Notes Editor Screen
+
+* Editable note title
+* Editable multiline note content
+* Auto-save while editing
+* Create new notes
+* Delete notes
+* Keyboard-aware scrolling
+* Elegant header background image
+* Back button to return to View 1
+
+---
+
+# 🎨 UI Enhancements
+
+* Modern minimal design
+* Manrope custom font integration
+* Dynamic theme system
+* Soft shadows and elevation effects
+* Rounded card layouts
+* Responsive spacing and typography
+* Elegant floating action button
+* Tablet-friendly layouts
+
+---
+
+# 🛠️ Tech Stack
+
+| Technology                              | Purpose                 |
+| --------------------------------------- | ----------------------- |
+| React Native                            | Mobile app development  |
+| Expo                                    | Development environment |
+| Expo Router                             | Project structure       |
+| JavaScript / TypeScript                 | App logic               |
+| react-native-keyboard-aware-scroll-view | Keyboard handling       |
+| Expo Vector Icons                       | Icons                   |
+
+---
+
+# 🧩 Components Used
+
+## Screens
+
+* `View1`
+* `View2`
+
+## Custom Components
+
+* `Header`
+* `SubHeader`
+* `Card`
+* `Notes`
+* `FloatingActionButton`
+
+## React Native Components
+
+* `View`
+* `Text`
+* `FlatList`
+* `Pressable`
+* `TextInput`
+* `ImageBackground`
+* `Switch`
+* `SafeAreaView`
+* `StatusBar`
+* `KeyboardAwareScrollView`
+
+---
+
+# ⚛️ Hooks Used
+
+## React Hooks
+
+* `useState`
+* `useEffect`
+
+## React Native Hooks
+
+* `useColorScheme`
+* `useWindowDimensions`
+
+---
+
+# 📱 Responsive Design
+
+The app is fully responsive and adapts to:
+
+* Mobile devices
+* Tablets
+* Different screen sizes
+* Dark/light system themes
+
+Responsive behavior implemented using:
+
+* `useWindowDimensions`
+* percentage-based sizing
+* dynamic font scaling
+* conditional tablet layouts
+
+---
+
+# 🌙 Theme System
+
+The app uses a centralized theme configuration with:
+
+* Light theme
+* Dark theme
+* Dynamic colors
+* Icon themes
+* Card/background variations
+
+Theme switching is handled in real time.
+
+---
+
+# 📂 Project Structure
 
 ```bash
-npm run reset-project
+src/
+ ├── app/
+ │    └── index.tsx
+ │
+ ├── components/
+ │    ├── Card.tsx
+ │    ├── FloatingActionButton.tsx
+ │    ├── Header.tsx
+ │    ├── Notes.tsx
+ │    └── SubHeader.tsx
+ │
+ ├── constants/
+ │    ├── notes.ts
+ │    └── theme.ts
+ │
+ └── screens/
+      ├── View1.tsx
+      └── View2.tsx
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+---
 
-### Other setup steps
+# 🚀 Getting Started
 
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
+## 1. Clone Repository
 
-## Learn more
+```bash
+git clone <your-repository-link>
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+---
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+## 2. Install Dependencies
 
-## Join the community
+```bash
+npm install
+```
 
-Join our community of developers creating universal apps.
+---
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+## 3. Start Expo Server
+
+```bash
+npx expo start
+```
+
+---
+
+# 🎥 Demo Video
+
+Add your demo video link here:
+
+![](./assets/video.mp4)
+```text
+<demo-video-link>
+```
+
+---
+
+# 🔗 GitHub Repository
+
+Add your repository link here:
+
+```text
+<github-repository-link>
+```
+
+---
+
+# 📸 Screenshots
+![](./assets/screenshots/sc1.jpg)
+![](./assets/screenshots/sc2.jpg)
+![](./assets/screenshots/sc3.jpg)
+![](./assets/screenshots/sc4.jpg)
+![](./assets/screenshots/sc5.jpg)
+![](./assets/screenshots/sc6.jpg)
+![](./assets/screenshots/sc7.jpg)
+![](./assets/screenshots/sc8.jpg)
+
+
+
+
+
+---
+
+# Requirements Covered
+
+✅ Notes displayed using FlatList
+✅ Search functionality
+✅ Dynamic dark/light mode
+✅ Pressable note cards
+✅ Multiline note editing
+✅ Keyboard handling
+✅ Image background
+✅ Responsive layout
+✅ Styles via `StyleSheet.create()`
+✅ Usage of `StyleSheet.compose()` and `StyleSheet.flatten()`
+
+---
+
