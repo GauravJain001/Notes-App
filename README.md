@@ -18,7 +18,13 @@ The app contains two main views:
 * View 1 → Notes listing screen
 * View 2 → Notes editor screen
 
-https://github.com/user-attachments/assets/08d4f60e-e277-44b0-b134-6c8590863c0a
+
+
+<div align="center">
+  <video src="https://github.com/user-attachments/assets/08d4f60e-e277-44b0-b134-6c8590863c0a" width="320" controls muted autoplay loop>
+    Your browser does not support the video tag.
+  </video>
+</div>
 ---
 
 # ✨ Features
